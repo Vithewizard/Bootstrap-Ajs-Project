@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>96 Lancaster</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="supportfiles/angular.js"></script>
+  <script type="text/javascript" src="supportfiles/angular-route.js"></script>
+  <script type="text/javascript" src="lanapp.js"></script>
+  	
+</head>
+
+<body ng-app="myapp" ng-controller="UserController">
+
+<div class="container">
+  <div class="lancaster">
+    <h1>Welcome to 96 Lancaster website HomePage!</h1>      
+    <p>In this website you will have the detailed description of the house. Its a beautiful house in a beautiful neighbourhood. If you are interested in the house please go to our Contact us tab and we will contact you soon</p>      
+  </div> 
+
+  <ul class="nav nav-pills">
+    <li><a href="C:\Users\PABBATHI\Downloads\BootstrapAssignment\Viassignment\96lanboot.html">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="C:\Users\PABBATHI\Downloads\BootstrapAssignment\Viassignment\picturetab.html">Pictures</a></li>
+    <li class="active"><a href="#">Contact Us</a></li>
+  </ul>
+</div>
+
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Please Provide us with your details </a>
+        </div>
+    </div>
+   
+</nav>
+
+<div class="container">
+    <div class="row well">
+        <div class="col-md-6">
+			
+			<div class="form-group">
+                    <label>Status</label>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="user.status">
+                            Mr.
+                        </label>
+                        <label>
+                            <input type="radio" ng-model="user.Status">
+                            Mrs.
+                        </label>
+                        
+                    </div>
+                </div>
+
+            <form class="form" name="userForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="fname" class="form-control" ng-model="user.fname">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" placeholder="xxxxxxxxxx@xxx.xxx" ng-model="user.email">
+                </div>        
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" placeholder="(xxx)-xxx-xxxx" ng-model="user.phone">
+                </div>
+
+        </div>
+        
+		<div class="col-md-6">
+		    <br>
+			<br>
+			<div class="form-group">
+			<br>
+			<label>Category</label>
+                <select class="form-control" ng-model="user.state">
+                    <option>Interested in Buying</option>
+                    <option>Interested in Renting</option>
+					<option>Request for Open House</option>
+                </select>
+            </div>
+			<div class="form-group">
+                <label>Subject</label>
+                <input type="text" class="form-control" ng-model="user.subject">
+            </div>
+            <div class="form-group">
+                <label>Comments</label>
+                <input type="text" class="form-control" ng-model="user.comments">
+            </div>
+                   
+            <div class="pull-right">
+                <button type="submit" class="btn btn-md btn-Default" ng-click="addUser(user)">Submit</button>
+                <button type="button" class="btn btn-md btn-warning">Cancel</button>
+            </div>
+        </div>
+        </form>
+
+    </div>
+
+    <div class="row well">
+        <h1>Details</h1>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <td>Full Name</td>
+                <td>Email Name</td>
+                <td>Phone Number</td>
+                <td>Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="x in userList">
+                <td>{{x.fname}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.phone}}</td>
+                <td><button ng-click="removeUser(x)">Remove</button></td>
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
